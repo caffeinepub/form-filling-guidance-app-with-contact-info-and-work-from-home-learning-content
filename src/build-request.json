@@ -1,0 +1,148 @@
+{
+  "kind": "build_request",
+  "title": "Form-filling guidance app with contact info and work-from-home learning content",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create the core app navigation and pages for: (1) Guided Form Filling, (2) Contact & Support, and (3) Learn (make money online from home), with all user-facing text in English.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "For form filling people we guide and contact information and learn how to make money online from home"
+        ]
+      },
+      "acceptanceCriteria": [
+        "App has clearly labeled navigation to the three sections (Guided Form Filling, Contact & Support, Learn).",
+        "Each section renders a dedicated page/route with English headings and copy.",
+        "Pages are responsive and usable on mobile and desktop."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement a guided form-filling flow that helps users complete common online forms step-by-step, including: selecting a form type, showing required fields, providing tips/examples per field, and producing a final review screen before submission (no actual submission to third-party sites).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "For form filling people we guide"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can choose from at least 3 form types (e.g., job application, survey, registration) and see a step-by-step wizard.",
+        "Each step displays field guidance (tips/examples) and basic validation (required fields, simple formats like email/phone).",
+        "A final review screen summarizes entered data and guidance reminders; the flow clearly states the user must submit on the external site themselves."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Provide a Contact & Support section that shows support contact information and a help request form (name, email, message) that stores requests in the backend.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "contact information"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Contact page displays at least: support email, hours/availability text, and a short support note in English.",
+        "Help request form validates required fields and email format on the client.",
+        "On submit, a backend call persists the help request and the UI shows a success state.",
+        "A backend query endpoint exists to list submitted help requests (for future admin use)."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Create a Learn section with structured educational content about making money online from home (articles/lessons), including categories, lesson detail pages, and clear disclaimers about avoiding scams and not guaranteeing income.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "learn how to make money online from home"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Learn page lists lessons grouped by category (e.g., freelancing basics, online surveys, content creation, remote customer support).",
+        "User can open a lesson detail view that shows title, reading time (or length indicator), and the lesson body in English.",
+        "UI prominently displays a disclaimer that results are not guaranteed and includes a short “scam awareness” checklist.",
+        "Lessons are served from the backend via query endpoints (not hardcoded only in the UI)."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement Motoko backend data models and endpoints to support: (a) fetching form guidance templates, (b) fetching learning lessons and categories, and (c) creating and listing help requests. Persist this data in canister stable state.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "For form filling people we guide and contact information and learn how to make money online from home"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend exposes query methods to fetch form guidance templates and learning lessons/categories.",
+        "Backend exposes an update method to create a help request and persists it.",
+        "Backend exposes a query method to list help requests.",
+        "Data persists across canister upgrades using stable variables (no migration file unless actually required by implementation)."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Apply a coherent visual theme across the app (colors, typography, spacing, and component styling) suitable for an educational/support experience; avoid blue/purple as primary colors.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "UI uses a consistent theme (e.g., warm neutral background with green/orange accents) across all pages.",
+        "Typography and spacing are consistent; primary/secondary button styles are unified.",
+        "No blue/purple is used as the primary brand color."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Add generated static brand/illustration assets and use them in the UI (stored under frontend/public/assets/generated), including a simple logo and a hero illustration.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated images exist in frontend/public/assets/generated with the exact filenames specified in imageRequirements.required.",
+        "Header/nav displays the generated logo.",
+        "Home/landing area (or top of Learn page) displays the generated hero illustration.",
+        "Images are loaded as static assets from the frontend (not fetched via backend)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Use English for any user-facing text.",
+    "Backend must remain a single Motoko actor in backend/main.mo; do not introduce additional backend services.",
+    "Do not modify files under frontend/src/components/ui or any other immutablePaths; compose those components instead."
+  ],
+  "nonGoals": [
+    "Integrating third-party form submission or scraping external form websites.",
+    "Guaranteeing earnings or providing financial/legal advice.",
+    "Third-party authentication providers (use Internet Identity only if authentication becomes necessary later)."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Minimal flat logo mark of a clipboard with a checkmark and a small house icon, warm neutral + green accent (app-logo.dim_512x512.png)",
+      "Wide hero illustration of a person working at home on a laptop with simple UI form elements floating nearby, warm neutral background with green/orange accents (hero-illustration.dim_1600x900.png)"
+    ],
+    "edits": []
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup defining all routes (home/learn, guided forms, contact, lesson detail) and wrapping them in the AppLayout component.",
+  "frontend/src/components/AppLayout.tsx": "Shared layout component providing consistent header navigation with logo and nav links, main content area, and footer with attribution and social links across all pages.",
+  "frontend/src/components/BrandLogo.tsx": "Simple component rendering the static app logo image from the generated assets folder with proper alt text.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend interactions including fetching lesson categories, lessons by category, individual lessons, disclaimers, support contact info, and submitting help requests.",
+  "frontend/src/pages/LearnPage.tsx": "Main learning page displaying hero section, disclaimer alert, scam awareness checklist, and categorized lesson listings fetched from the backend.",
+  "frontend/src/pages/LessonDetailPage.tsx": "Individual lesson detail page showing lesson title, difficulty badge, reading time estimate, tags, full content, disclaimer, and scam awareness checklist.",
+  "frontend/src/pages/GuidedFormFillingPage.tsx": "Page introducing the guided form filling wizard with instructions and embedding the multi-step form wizard component.",
+  "frontend/src/pages/ContactSupportPage.tsx": "Contact and support page displaying support information from backend, response time details, important reminders about scams, and the help request form.",
+  "frontend/src/components/learn/LearnHero.tsx": "Hero section component for the Learn page featuring headline, description, and the generated hero illustration image.",
+  "frontend/src/components/learn/ScamAwarenessChecklist.tsx": "Reusable card component displaying red flags to avoid and green flags to look for when evaluating work-from-home opportunities.",
+  "frontend/src/components/learn/LessonListByCategory.tsx": "Component displaying lessons grouped by category with category filter buttons and lesson cards linking to detail pages.",
+  "frontend/src/components/support/HelpRequestForm.tsx": "Contact form component with name, email, and message fields, client-side validation, backend submission via mutation, and success state display.",
+  "frontend/src/components/guided-form/types.ts": "TypeScript type definitions for form wizard including FormType, FieldDefinition, FormTemplate, FormData, and ValidationResult interfaces.",
+  "frontend/src/components/guided-form/formTemplates.ts": "Three pre-configured form templates (job application, survey, registration) with field definitions, tips, and examples for the guided wizard with fixed syntax error.",
+  "frontend/src/components/guided-form/validators.ts": "Client-side validation functions for form fields including required field checks, email format validation, and phone number validation.",
+  "frontend/src/components/guided-form/GuidedFormWizard.tsx": "Multi-step wizard component managing form type selection, step-by-step field completion with tips and examples, and final review screen with submission reminder.",
+  "frontend/src/index.css": "Global styles with OKLCH color system using warm neutral base colors with green primary and orange accent colors for both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with Inter font family and maintaining the warm neutral + green/orange color palette."
+}

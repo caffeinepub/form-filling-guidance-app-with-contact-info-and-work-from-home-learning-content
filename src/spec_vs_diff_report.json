@@ -1,0 +1,109 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-11T05:12:52.018Z",
+  "summary": "Diff adds new frontend routes/pages (Learn, Guided Forms, Contact), a guided form wizard with 3 form types and client-side validation, a Learn page with hero image + disclaimer + scam checklist and backend query hooks, and a new backend/main.mo with lesson/category/help-request models plus authorization scaffolding. However, several backend persistence/query requirements are not evidenced, form guidance is hardcoded in the UI rather than fetched from backend, and authentication/access-control features were added despite not being requested.",
+  "missing_requirements": [
+    {
+      "id": "REQ-5",
+      "requirement": "Persist backend data in canister stable state across upgrades using stable variables (help requests, lessons/categories, form guidance templates).",
+      "reason": "The backend shows in-memory Maps and counters (e.g., `var nextHelpRequestId`, `let helpRequests = Map.empty`) but no `stable var` declarations are visible in the provided truncated backend snippet.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "requirement": "Expose backend query methods to fetch form guidance templates.",
+      "reason": "Frontend uses locally hardcoded `formTemplates` and the diff does not show any backend endpoint like `getFormGuidanceTemplates`/`getFormTemplates` (backend file is truncated, so absence is not fully provable, but there is no evidence of these endpoints being used or defined).",
+      "evidence": [
+        "frontend/src/components/guided-form/formTemplates.ts",
+        "frontend/src/components/guided-form/GuidedFormWizard.tsx",
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "requirement": "Lesson detail view shows title, reading time (or length indicator), and lesson body.",
+      "reason": "A `LessonDetailPage` route is registered, but the diff summary does not include the `frontend/src/pages/LessonDetailPage.tsx` file content to confirm reading time/length indicator is implemented.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "requirement": "Backend query endpoint exists to list submitted help requests (for future admin use).",
+      "reason": "Frontend invalidates a `helpRequests` query key, but no hook or UI for listing is shown, and the truncated backend snippet does not show a `listHelpRequests` query method.",
+      "evidence": [
+        "frontend/src/hooks/useQueries.ts",
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "requirement": "Generated images exist in frontend/public/assets/generated with exact filenames (app-logo.dim_512x512.png, hero-illustration.dim_1600x900.png).",
+      "reason": "UI references these paths, but the diff summary does not show the actual image files being added (they may be in the omitted added files, but there is no direct evidence in the provided diff list).",
+      "evidence": [
+        "frontend/src/components/BrandLogo.tsx",
+        "frontend/src/components/learn/LearnHero.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Introduced authorization/access-control scaffolding in the backend (AccessControl, MixinAuthorization, secret-based initialization).",
+      "reason": "BuildRequest did not request admin access control or authorization features; it explicitly lists third-party auth providers as a non-goal and only mentions Internet Identity if authentication becomes necessary later.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Added Internet Identity authentication provider/hook wiring and actor initialization that depends on identity and a secret URL parameter (`caffeineAdminToken`).",
+      "reason": "Authentication was not required for any acceptance criteria; help requests/lessons/form guidance do not require logged-in behavior per the BuildRequest.",
+      "evidence": [
+        "frontend/src/main.tsx",
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Added social media 'Connect' footer icons/links (Facebook, X, LinkedIn).",
+      "reason": "Not requested in requirements or acceptance criteria.",
+      "evidence": [
+        "frontend/src/components/AppLayout.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.62,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/AppLayout.tsx",
+    "frontend/src/components/BrandLogo.tsx",
+    "frontend/src/components/guided-form/GuidedFormWizard.tsx",
+    "frontend/src/components/guided-form/formTemplates.ts",
+    "frontend/src/components/guided-form/types.ts",
+    "frontend/src/components/guided-form/validators.ts",
+    "frontend/src/components/learn/LearnHero.tsx",
+    "frontend/src/components/learn/LessonListByCategory.tsx",
+    "frontend/src/components/learn/ScamAwarenessChecklist.tsx",
+    "frontend/src/components/support/HelpRequestForm.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/ContactSupportPage.tsx",
+    "frontend/src/pages/GuidedFormFillingPage.tsx",
+    "frontend/src/pages/LearnPage.tsx",
+    "frontend/src/pages/LessonDetailPage.tsx",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

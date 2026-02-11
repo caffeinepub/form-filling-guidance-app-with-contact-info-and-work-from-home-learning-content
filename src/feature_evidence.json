@@ -1,0 +1,137 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-the-core-app-navigation-and-pages-for-1-guided-form-filling-2-contact-support-and-3-learn-make-money-online-from-home-with-all-user-facing-text-in-english",
+      "featureTitle": "Create the core app navigation and pages for: (1) Guided Form Filling, (2) Contact & Support, and (3) Learn (make money online from home), with all user-facing text in English.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AppLayout.tsx",
+        "frontend/src/pages/ContactSupportPage.tsx",
+        "frontend/src/pages/GuidedFormFillingPage.tsx",
+        "frontend/src/pages/LearnPage.tsx",
+        "frontend/src/pages/LessonDetailPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-guided-form-filling-flow-that-helps-users-complete-common-online-forms-step-by-step-including-selecting-a-form-type-showing-required-fields-providing-tips-examples-per-field-and-producing-a-final-review-screen-before-submission-no-actual-submission-to-third-party-sites",
+      "featureTitle": "Implement a guided form-filling flow that helps users complete common online forms step-by-step, including: selecting a form type, showing required fields, providing tips/examples per field, and producing a final review screen before submission (no actual submission to third-party sites).",
+      "files": [
+        "frontend/src/components/guided-form/GuidedFormWizard.tsx",
+        "frontend/src/components/guided-form/formTemplates.ts",
+        "frontend/src/components/guided-form/types.ts",
+        "frontend/src/components/guided-form/validators.ts",
+        "frontend/src/pages/GuidedFormFillingPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-provide-a-contact-support-section-that-shows-support-contact-information-and-a-help-request-form-name-email-message-that-stores-requests-in-the-backend",
+      "featureTitle": "Provide a Contact & Support section that shows support contact information and a help request form (name, email, message) that stores requests in the backend.",
+      "files": [
+        "frontend/src/components/support/HelpRequestForm.tsx",
+        "frontend/src/pages/ContactSupportPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-learn-section-with-structured-educational-content-about-making-money-online-from-home-articles-lessons-including-categories-lesson-detail-pages-and-clear-disclaimers-about-avoiding-scams-and-not-guaranteeing-income",
+      "featureTitle": "Create a Learn section with structured educational content about making money online from home (articles/lessons), including categories, lesson detail pages, and clear disclaimers about avoiding scams and not guaranteeing income.",
+      "files": [
+        "frontend/src/components/learn/LessonListByCategory.tsx",
+        "frontend/src/components/learn/ScamAwarenessChecklist.tsx",
+        "frontend/src/pages/LearnPage.tsx",
+        "frontend/src/pages/LessonDetailPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-coherent-visual-theme-across-the-app-colors-typography-spacing-and-component-styling-suitable-for-an-educational-support-experience-avoid-blue-purple-as-primary-colors",
+      "featureTitle": "Apply a coherent visual theme across the app (colors, typography, spacing, and component styling) suitable for an educational/support experience; avoid blue/purple as primary colors.",
+      "files": [
+        "frontend/src/components/AppLayout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-generated-static-brand-illustration-assets-and-use-them-in-the-ui-stored-under-frontend-public-assets-generated-including-a-simple-logo-and-a-hero-illustration",
+      "featureTitle": "Add generated static brand/illustration assets and use them in the UI (stored under frontend/public/assets/generated), including a simple logo and a hero illustration.",
+      "files": [
+        "frontend/src/components/AppLayout.tsx",
+        "frontend/src/components/BrandLogo.tsx",
+        "frontend/src/components/learn/LearnHero.tsx",
+        "frontend/src/pages/LearnPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
