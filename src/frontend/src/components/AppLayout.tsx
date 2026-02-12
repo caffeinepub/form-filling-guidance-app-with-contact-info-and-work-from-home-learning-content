@@ -1,7 +1,7 @@
 import { Link, useLocation } from '@tanstack/react-router';
 import { BookOpen, FileText, Mail } from 'lucide-react';
 import BrandLogo from './BrandLogo';
-import { SiX, SiFacebook, SiLinkedin } from 'react-icons/si';
+import { SiX, SiFacebook, SiWhatsapp } from 'react-icons/si';
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
@@ -98,16 +98,28 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                   <SiX className="h-5 w-5" />
                 </a>
                 <a
-                  href="#"
+                  href="https://wa.me/message/P243ECCLGYITA1"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-foreground transition-colors"
-                  aria-label="LinkedIn"
+                  aria-label="WhatsApp"
                 >
-                  <SiLinkedin className="h-5 w-5" />
+                  <SiWhatsapp className="h-5 w-5" />
                 </a>
               </div>
-              <p className="text-xs text-muted-foreground">
-                Stay updated with tips and resources for working from home safely.
-              </p>
+              <div className="text-sm text-muted-foreground space-y-2">
+                <p>Phone: +916393481228</p>
+                <p>
+                  <a
+                    href="https://wa.me/message/P243ECCLGYITA1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    Chat on WhatsApp
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
 

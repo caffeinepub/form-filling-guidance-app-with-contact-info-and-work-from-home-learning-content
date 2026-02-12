@@ -84,6 +84,10 @@ export default function GuidedFormWizard() {
     setErrors({});
   };
 
+  const handleWhatsAppClick = () => {
+    window.open('https://wa.me/message/P243ECCLGYITA1', '_blank', 'noopener,noreferrer');
+  };
+
   const progress = selectedForm ? ((currentFieldIndex + 1) / selectedForm.fields.length) * 100 : 0;
 
   if (step === 'select') {
@@ -192,7 +196,7 @@ export default function GuidedFormWizard() {
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back
           </Button>
-          <Button onClick={handleNext}>
+          <Button onClick={currentFieldIndex < selectedForm.fields.length - 1 ? handleNext : handleWhatsAppClick}>
             {currentFieldIndex < selectedForm.fields.length - 1 ? (
               <>
                 Next
@@ -200,8 +204,7 @@ export default function GuidedFormWizard() {
               </>
             ) : (
               <>
-                Review
-                <CheckCircle2 className="ml-2 h-4 w-4" />
+                Join Fast!!
               </>
             )}
           </Button>

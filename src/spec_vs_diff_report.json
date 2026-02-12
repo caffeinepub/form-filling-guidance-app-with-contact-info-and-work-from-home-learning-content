@@ -1,109 +1,46 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-11T05:12:52.018Z",
-  "summary": "Diff adds new frontend routes/pages (Learn, Guided Forms, Contact), a guided form wizard with 3 form types and client-side validation, a Learn page with hero image + disclaimer + scam checklist and backend query hooks, and a new backend/main.mo with lesson/category/help-request models plus authorization scaffolding. However, several backend persistence/query requirements are not evidenced, form guidance is hardcoded in the UI rather than fetched from backend, and authentication/access-control features were added despite not being requested.",
+  "generatedAt": "2026-02-12T07:29:03.357Z",
+  "summary": "The Learn page hero <img> source was updated to point to /assets/generated/hero-guidance-logo.dim_1600x900.png and the alt text was updated. However, the required new static asset file was not added, and unrelated hero headline text was changed (including a personal name), which is outside the requested scope.",
   "missing_requirements": [
     {
-      "id": "REQ-5",
-      "requirement": "Persist backend data in canister stable state across upgrades using stable variables (help requests, lessons/categories, form guidance templates).",
-      "reason": "The backend shows in-memory Maps and counters (e.g., `var nextHelpRequestId`, `let helpRequests = Map.empty`) but no `stable var` declarations are visible in the provided truncated backend snippet.",
+      "id": "REQ-1",
+      "requirement": "The selected hero <img> uses a new static asset in frontend/public/assets/generated (hero-guidance-logo.dim_1600x900.png).",
+      "reason": "The <img> src references the new asset path, but the diff shows no new files added, so the required image file does not appear to have been added under frontend/public/assets/generated.",
       "evidence": [
-        "backend/main.mo"
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "requirement": "Expose backend query methods to fetch form guidance templates.",
-      "reason": "Frontend uses locally hardcoded `formTemplates` and the diff does not show any backend endpoint like `getFormGuidanceTemplates`/`getFormTemplates` (backend file is truncated, so absence is not fully provable, but there is no evidence of these endpoints being used or defined).",
-      "evidence": [
-        "frontend/src/components/guided-form/formTemplates.ts",
-        "frontend/src/components/guided-form/GuidedFormWizard.tsx",
-        "backend/main.mo"
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "requirement": "Lesson detail view shows title, reading time (or length indicator), and lesson body.",
-      "reason": "A `LessonDetailPage` route is registered, but the diff summary does not include the `frontend/src/pages/LessonDetailPage.tsx` file content to confirm reading time/length indicator is implemented.",
-      "evidence": [
-        "frontend/src/App.tsx"
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "requirement": "Backend query endpoint exists to list submitted help requests (for future admin use).",
-      "reason": "Frontend invalidates a `helpRequests` query key, but no hook or UI for listing is shown, and the truncated backend snippet does not show a `listHelpRequests` query method.",
-      "evidence": [
-        "frontend/src/hooks/useQueries.ts",
-        "backend/main.mo"
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "requirement": "Generated images exist in frontend/public/assets/generated with exact filenames (app-logo.dim_512x512.png, hero-illustration.dim_1600x900.png).",
-      "reason": "UI references these paths, but the diff summary does not show the actual image files being added (they may be in the omitted added files, but there is no direct evidence in the provided diff list).",
-      "evidence": [
-        "frontend/src/components/BrandLogo.tsx",
-        "frontend/src/components/learn/LearnHero.tsx"
+        "frontend/src/components/learn/LearnHero.tsx (references /assets/generated/hero-guidance-logo.dim_1600x900.png)",
+        "File diff summary: Added: 0"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Introduced authorization/access-control scaffolding in the backend (AccessControl, MixinAuthorization, secret-based initialization).",
-      "reason": "BuildRequest did not request admin access control or authorization features; it explicitly lists third-party auth providers as a non-goal and only mentions Internet Identity if authentication becomes necessary later.",
+      "description": "Changed Learn page hero headline copy to include a personal name and new marketing text.",
+      "reason": "The BuildRequest only asked to replace the selected hero image and update its alt text; it explicitly constrained changes to the selected element and did not request any text/copy changes.",
       "evidence": [
-        "backend/main.mo",
-        "frontend/src/hooks/useActor.ts"
+        "frontend/src/components/learn/LearnHero.tsx (h1 changed to \"Hey Here is Abhishek Singh &Team Join Fast!!\")"
       ]
     },
     {
-      "description": "Added Internet Identity authentication provider/hook wiring and actor initialization that depends on identity and a secret URL parameter (`caffeineAdminToken`).",
-      "reason": "Authentication was not required for any acceptance criteria; help requests/lessons/form guidance do not require logged-in behavior per the BuildRequest.",
+      "description": "Updated/added repository metadata summaries (frontend-file-summaries.txt) beyond the requested hero image change.",
+      "reason": "Not requested in the BuildRequest; appears to be documentation/metadata updates rather than implementing REQ-1/REQ-2.",
       "evidence": [
-        "frontend/src/main.tsx",
-        "frontend/src/hooks/useInternetIdentity.ts",
-        "frontend/src/hooks/useActor.ts"
+        "frontend-file-summaries.txt"
       ]
     },
     {
-      "description": "Added social media 'Connect' footer icons/links (Facebook, X, LinkedIn).",
-      "reason": "Not requested in requirements or acceptance criteria.",
+      "description": "Modified project tracking state (project_state.json) marking requests as pending/including additional metadata.",
+      "reason": "Not requested as part of implementing the frontend hero image/alt text requirements.",
       "evidence": [
-        "frontend/src/components/AppLayout.tsx"
+        "project_state.json"
       ]
     }
   ],
-  "confidence": 0.62,
+  "confidence": 0.72,
   "changed_files": [
-    "all_files_summary.json",
-    "backend/main.mo",
     "frontend-file-summaries.txt",
-    "frontend/index.css",
-    "frontend/index.html",
-    "frontend/src/App.tsx",
-    "frontend/src/components/AppLayout.tsx",
-    "frontend/src/components/BrandLogo.tsx",
-    "frontend/src/components/guided-form/GuidedFormWizard.tsx",
-    "frontend/src/components/guided-form/formTemplates.ts",
-    "frontend/src/components/guided-form/types.ts",
-    "frontend/src/components/guided-form/validators.ts",
     "frontend/src/components/learn/LearnHero.tsx",
-    "frontend/src/components/learn/LessonListByCategory.tsx",
-    "frontend/src/components/learn/ScamAwarenessChecklist.tsx",
-    "frontend/src/components/support/HelpRequestForm.tsx",
-    "frontend/src/hooks/useActor.ts",
-    "frontend/src/hooks/useInternetIdentity.ts",
-    "frontend/src/hooks/useQueries.ts",
-    "frontend/src/index.css",
-    "frontend/src/main.tsx",
-    "frontend/src/pages/ContactSupportPage.tsx",
-    "frontend/src/pages/GuidedFormFillingPage.tsx",
-    "frontend/src/pages/LearnPage.tsx",
-    "frontend/src/pages/LessonDetailPage.tsx",
-    "frontend/src/utils/urlParams.ts",
-    "frontend/tailwind.config.js",
     "project_state.json"
   ]
 }

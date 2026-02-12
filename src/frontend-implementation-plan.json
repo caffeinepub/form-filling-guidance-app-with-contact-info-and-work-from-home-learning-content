@@ -1,244 +1,40 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Form filling guidance + support contact + work-from-home learning (frontend)",
+  "title": "Swap Learn hero illustration with uploaded logo asset",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Add core navigation and dedicated routes/pages for Guided Form Filling, Contact & Support, and Learn with English copy and responsive layout.",
+      "summary": "Replace the Learn page hero <img> source with the newly uploaded logo-based hero graphic while preserving existing responsive/styling classes.",
       "acceptanceCriteria": [
-        "App has clearly labeled navigation to the three sections (Guided Form Filling, Contact & Support, Learn).",
-        "Each section renders a dedicated page/route with English headings and copy.",
-        "Pages are responsive and usable on mobile and desktop."
+        "The Learn page hero image no longer uses /assets/generated/hero-illustration.dim_1600x900.png.",
+        "The selected hero <img> uses a new static asset in frontend/public/assets/generated and renders without layout breakage (keeps responsive sizing and rounded/shadow styling)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/App.tsx",
+          "path": "frontend/public/assets/generated/hero-guidance-logo.dim_1600x900.png",
           "operation": "create",
-          "description": "Create the app shell with a responsive header/nav linking to the three required sections, and a main content area that renders the routed pages. Compose (do not modify) shadcn-ui components for layout primitives (e.g., Button, Card, Separator) where useful. Verify the component's usage instructions before implementing."
+          "description": "Add the generated landscape-cropped/letterboxed logo graphic asset (hero-guidance-logo.dim_1600x900.png) as a static file for the Learn hero image."
         },
         {
-          "path": "frontend/src/routes.tsx",
-          "operation": "create",
-          "description": "Define and export the app routes for Guided Form Filling, Contact & Support, Learn, plus a safe default redirect or not-found handling to ensure all pages are reachable from navigation."
-        },
-        {
-          "path": "frontend/src/components/AppLayout.tsx",
-          "operation": "create",
-          "description": "Add a reusable layout component (header/nav + content container) used by all routes to ensure consistent structure and responsive spacing. Compose (do not modify) shadcn-ui components as needed. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/pages/GuidedFormFillingPage.tsx",
-          "operation": "create",
-          "description": "Create the Guided Form Filling page route with English headings/copy and an entry point into the guided wizard."
-        },
-        {
-          "path": "frontend/src/pages/ContactSupportPage.tsx",
-          "operation": "create",
-          "description": "Create the Contact & Support page route with English headings/copy, contact info area, and embedded help request form."
-        },
-        {
-          "path": "frontend/src/pages/LearnPage.tsx",
-          "operation": "create",
-          "description": "Create the Learn page route with English headings/copy, category-grouped lesson list, and a clear disclaimer area near the top."
-        },
-        {
-          "path": "frontend/src/pages/LessonDetailPage.tsx",
-          "operation": "create",
-          "description": "Create the lesson detail route/page that displays lesson title, length indicator, body content, and disclaimers in English."
+          "path": "frontend/src/components/learn/LearnHero.tsx",
+          "operation": "modify",
+          "description": "Update ONLY the selected hero <img> (per provided XPath) to use src pointing to the new static asset at /assets/generated/hero-guidance-logo.dim_1600x900.png, keeping existing sizing and rounded/shadow className intact."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Implement a step-by-step guided form-filling wizard with at least 3 form types, field tips/examples, validation, and a final review screen (no third-party submission).",
+      "summary": "Update the Learn hero image alt text to clear English describing the logo graphic without personal names.",
       "acceptanceCriteria": [
-        "User can choose from at least 3 form types (e.g., job application, survey, registration) and see a step-by-step wizard.",
-        "Each step displays field guidance (tips/examples) and basic validation (required fields, simple formats like email/phone).",
-        "A final review screen summarizes entered data and guidance reminders; the flow clearly states the user must submit on the external site themselves."
+        "The hero image alt text is in English and does not contain personal names.",
+        "Lighthouse/axe checks for missing alt text pass for this image."
       ],
       "file_operations": [
-        {
-          "path": "frontend/src/components/guided-form/types.ts",
-          "operation": "create",
-          "description": "Add shared TypeScript types for form types, wizard steps, field definitions, and validation results used by the guided form flow."
-        },
-        {
-          "path": "frontend/src/components/guided-form/formTemplates.ts",
-          "operation": "create",
-          "description": "Provide at least 3 form templates (e.g., job application, survey, registration) defining required fields and per-field guidance (tips + examples) in English."
-        },
-        {
-          "path": "frontend/src/components/guided-form/validators.ts",
-          "operation": "create",
-          "description": "Implement basic client-side validation helpers (required fields, email format, phone format) for use in wizard steps."
-        },
-        {
-          "path": "frontend/src/components/guided-form/GuidedFormWizard.tsx",
-          "operation": "create",
-          "description": "Implement the multi-step wizard UI: form type selection, per-field steps with tips/examples, and a final review screen that explicitly states users must submit on the external site themselves. Compose (do not modify) shadcn-ui components (e.g., Card, Button, Input, Textarea, Progress) to build the wizard UI. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/pages/GuidedFormFillingPage.tsx",
-          "operation": "modify",
-          "description": "Wire the GuidedFormWizard into the Guided Form Filling page with clear English instructions and a responsive layout."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Build the Contact & Support page with support contact info and a validated help request form that submits to the backend and shows a success state.",
-      "acceptanceCriteria": [
-        "Contact page displays at least: support email, hours/availability text, and a short support note in English.",
-        "Help request form validates required fields and email format on the client.",
-        "On submit, a backend call persists the help request and the UI shows a success state.",
-        "A backend query endpoint exists to list submitted help requests (for future admin use)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/hooks/useSupportContactInfo.ts",
-          "operation": "create",
-          "description": "Create a React Query hook that uses the existing actor (via core-infrastructure/useActor) to fetch and cache support contact info for display on the Contact & Support page."
-        },
-        {
-          "path": "frontend/src/hooks/useSubmitHelpRequest.ts",
-          "operation": "create",
-          "description": "Create a React Query mutation hook that calls the backend capability to submit a help request and returns a success result for the UI."
-        },
-        {
-          "path": "frontend/src/components/support/HelpRequestForm.tsx",
-          "operation": "create",
-          "description": "Implement the help request form (name, email, message) with client-side validation (required + email format), submit handling, and a clear success state. Compose (do not modify) shadcn-ui components (e.g., Form-related primitives if present, Input, Textarea, Button, Alert) for consistent UI. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/pages/ContactSupportPage.tsx",
-          "operation": "modify",
-          "description": "Render support contact information (including support email, hours/availability text, and a short support note in English) plus the HelpRequestForm; ensure responsive layout and clear success/error messaging."
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "Implement the Learn section with backend-served categories and lessons, lesson detail pages, and prominent disclaimers and scam-awareness checklist.",
-      "acceptanceCriteria": [
-        "Learn page lists lessons grouped by category (e.g., freelancing basics, online surveys, content creation, remote customer support).",
-        "User can open a lesson detail view that shows title, reading time (or length indicator), and the lesson body in English.",
-        "UI prominently displays a disclaimer that results are not guaranteed and includes a short “scam awareness” checklist.",
-        "Lessons are served from the backend via query endpoints (not hardcoded only in the UI)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/hooks/useLessonCategories.ts",
-          "operation": "create",
-          "description": "Create a React Query hook to fetch lesson categories from the backend capability and cache results for the Learn page."
-        },
-        {
-          "path": "frontend/src/hooks/useLessonsByCategory.ts",
-          "operation": "create",
-          "description": "Create a React Query hook to fetch lessons for a given category from the backend capability; used to render grouped lesson lists."
-        },
-        {
-          "path": "frontend/src/hooks/useLesson.ts",
-          "operation": "create",
-          "description": "Create a React Query hook to fetch a single lesson by id from the backend capability for the lesson detail page."
-        },
-        {
-          "path": "frontend/src/hooks/useDisclaimer.ts",
-          "operation": "create",
-          "description": "Create a React Query hook to fetch disclaimer text from the backend capability; used to render consistent disclaimers across Learn list and detail views."
-        },
-        {
-          "path": "frontend/src/components/learn/ScamAwarenessChecklist.tsx",
-          "operation": "create",
-          "description": "Add a reusable scam-awareness checklist component in English that can be displayed prominently on Learn pages. Compose (do not modify) shadcn-ui components (e.g., Card, Badge, Separator) as needed. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/components/learn/LessonListByCategory.tsx",
-          "operation": "create",
-          "description": "Implement grouped lesson listing UI that renders categories with their lessons and links users to lesson detail routes. Compose (do not modify) shadcn-ui components (e.g., Accordion, Card, Button/Link styling) as needed. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/pages/LearnPage.tsx",
-          "operation": "modify",
-          "description": "Fetch categories and lessons from the backend via the new hooks, render lessons grouped by category, and display a prominent disclaimer plus the scam-awareness checklist near the top of the page."
-        },
-        {
-          "path": "frontend/src/pages/LessonDetailPage.tsx",
-          "operation": "modify",
-          "description": "Fetch and display lesson title, a reading-time/length indicator derived from content length, lesson body in English, and show the disclaimer plus scam-awareness checklist prominently."
-        },
-        {
-          "path": "frontend/src/routes.tsx",
-          "operation": "modify",
-          "description": "Wire the lesson detail route (e.g., a route that accepts a lesson id) so users can navigate from the Learn list to the LessonDetailPage."
-        }
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "summary": "Apply a cohesive warm-neutral educational/support theme across the app with green/orange accents and consistent typography/spacing; avoid blue/purple as primary colors.",
-      "acceptanceCriteria": [
-        "UI uses a consistent theme (e.g., warm neutral background with green/orange accents) across all pages.",
-        "Typography and spacing are consistent; primary/secondary button styles are unified.",
-        "No blue/purple is used as the primary brand color."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/index.css",
-          "operation": "create",
-          "description": "Create global styling entry with Tailwind + CSS variables for a warm neutral base and green/orange accents (ensuring primary is not blue/purple) compatible with shadcn-ui theming."
-        },
-        {
-          "path": "frontend/tailwind.config.js",
-          "operation": "modify",
-          "description": "Adjust theme tokens or extended colors only as needed to support the warm neutral + green/orange accent palette and consistent typography/spacing across the app (avoid blue/purple as primary)."
-        },
-        {
-          "path": "frontend/src/components/AppLayout.tsx",
-          "operation": "modify",
-          "description": "Ensure consistent spacing, typography hierarchy, and unified button/link styling in the shared layout using composed (not modified) shadcn-ui components. Verify the component's usage instructions before implementing."
-        }
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "summary": "Add generated logo and hero illustration static assets under frontend/public/assets/generated and display them in the header/nav and a landing/hero area (top of Learn page).",
-      "acceptanceCriteria": [
-        "Generated images exist in frontend/public/assets/generated with the exact filenames specified in imageRequirements.required.",
-        "Header/nav displays the generated logo.",
-        "Home/landing area (or top of Learn page) displays the generated hero illustration.",
-        "Images are loaded as static assets from the frontend (not fetched via backend)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/public/assets/generated/app-logo.dim_512x512.png",
-          "operation": "create",
-          "description": "Add the generated static logo asset at the exact required path: frontend/public/assets/generated/app-logo.dim_512x512.png."
-        },
-        {
-          "path": "frontend/public/assets/generated/hero-illustration.dim_1600x900.png",
-          "operation": "create",
-          "description": "Add the generated static hero illustration asset at the exact required path: frontend/public/assets/generated/hero-illustration.dim_1600x900.png."
-        },
-        {
-          "path": "frontend/src/components/BrandLogo.tsx",
-          "operation": "create",
-          "description": "Create a small brand logo component that renders the static image from frontend/public/assets/generated/app-logo.dim_512x512.png with accessible English alt text and size constraints."
-        },
-        {
-          "path": "frontend/src/components/AppLayout.tsx",
-          "operation": "modify",
-          "description": "Render the BrandLogo in the header/nav area so the logo is always visible during navigation."
-        },
         {
           "path": "frontend/src/components/learn/LearnHero.tsx",
-          "operation": "create",
-          "description": "Create a hero section component for the Learn page that renders the static image from frontend/public/assets/generated/hero-illustration.dim_1600x900.png along with concise English headline/subcopy and disclaimer placement. Compose (do not modify) shadcn-ui components for layout as needed. Verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/src/pages/LearnPage.tsx",
           "operation": "modify",
-          "description": "Wire the LearnHero at the top of the Learn page so the hero illustration is displayed prominently and responsively."
+          "description": "Update ONLY the selected hero <img> alt text to a clear English description of the logo graphic (exclude any personal names) while leaving all other Learn hero content unchanged."
         }
       ]
     }

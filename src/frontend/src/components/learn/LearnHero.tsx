@@ -5,8 +5,7 @@ export default function LearnHero() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-              Learn to Work From Home{' '}
-              <span className="text-green-600 dark:text-green-400">Safely</span>
+              Hey Here is Abhishek Singh &Team Join Fast!!
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Discover legitimate opportunities, avoid scams, and build skills for remote work success. Our educational
@@ -16,8 +15,8 @@ export default function LearnHero() {
 
           <div className="relative">
             <img
-              src="/assets/generated/hero-illustration.dim_1600x900.png"
-              alt="Person working from home with online forms"
+              src="/assets/generated/hero-guidance-logo.dim_1600x900.png"
+              alt="Guidance and Learning platform logo with graduation cap, book, and laurel wreath"
               className="w-full h-auto rounded-lg shadow-lg"
             />
           </div>

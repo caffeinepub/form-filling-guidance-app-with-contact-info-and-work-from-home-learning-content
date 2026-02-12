@@ -1,90 +1,31 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "App to guide people with form filling, provide contact information, and offer learning content on making money online from home.",
+  "summary": "New project",
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Minimal flat logo mark of a clipboard with a checkmark and a small house icon, warm neutral + green accent (app-logo.dim_512x512.png)\n- Wide hero illustration of a person working at home on a laptop with simple UI form elements floating nearby, warm neutral background with green/orange accents (hero-illustration.dim_1600x900.png)",
+  "imageRequirements": "## Required Images\n- Create a landscape-cropped/letterboxed version of the uploaded graphic with centered emblem and text on a clean background (hero-guidance-logo.dim_1600x900.png).",
   "existing_features": [
     {
-      "id": "feature-create-the-core-app-navigation-and-pages-for-1-guided-form-filling-2-contact-support-and-3-learn-make-money-online-from-home-with-all-user-facing-text-in-english",
-      "title": "Create the core app navigation and pages for: (1) Guided Form Filling, (2) Contact & Support, and (3) Learn (make money online from home), with all user-facing text in English.",
+      "id": "feature-update-the-selected-img-element-xpath-html-1-body-1-div-1-div-1-main-1-div-1-div-1-div-1-div-1-div-2-img-1-in-the-learn-page-hero-so-it-displays-the-newly-uploaded-logo-graphic-instead-of-the-current-hero-illustration",
+      "title": "Update the selected <img> element (XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]) in the Learn page hero so it displays the newly uploaded logo graphic instead of the current hero illustration.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-implement-a-guided-form-filling-flow-that-helps-users-complete-common-online-forms-step-by-step-including-selecting-a-form-type-showing-required-fields-providing-tips-examples-per-field-and-producing-a-final-review-screen-before-submission-no-actual-submission-to-third-party-sites",
-      "title": "Implement a guided form-filling flow that helps users complete common online forms step-by-step, including: selecting a form type, showing required fields, providing tips/examples per field, and producing a final review screen before submission (no actual submission to third-party sites).",
+      "id": "feature-set-the-updated-hero-image-alt-text-to-clear-english-describing-the-uploaded-logo-graphic-do-not-include-personal-names",
+      "title": "Set the updated hero image alt text to clear English describing the uploaded logo graphic (do not include personal names).",
       "reqIds": [
         "REQ-2"
       ],
       "version": 1
-    },
-    {
-      "id": "feature-provide-a-contact-support-section-that-shows-support-contact-information-and-a-help-request-form-name-email-message-that-stores-requests-in-the-backend",
-      "title": "Provide a Contact & Support section that shows support contact information and a help request form (name, email, message) that stores requests in the backend.",
-      "reqIds": [
-        "REQ-3"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-create-a-learn-section-with-structured-educational-content-about-making-money-online-from-home-articles-lessons-including-categories-lesson-detail-pages-and-clear-disclaimers-about-avoiding-scams-and-not-guaranteeing-income",
-      "title": "Create a Learn section with structured educational content about making money online from home (articles/lessons), including categories, lesson detail pages, and clear disclaimers about avoiding scams and not guaranteeing income.",
-      "reqIds": [
-        "REQ-4"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-apply-a-coherent-visual-theme-across-the-app-colors-typography-spacing-and-component-styling-suitable-for-an-educational-support-experience-avoid-blue-purple-as-primary-colors",
-      "title": "Apply a coherent visual theme across the app (colors, typography, spacing, and component styling) suitable for an educational/support experience; avoid blue/purple as primary colors.",
-      "reqIds": [
-        "REQ-6"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-generated-static-brand-illustration-assets-and-use-them-in-the-ui-stored-under-frontend-public-assets-generated-including-a-simple-logo-and-a-hero-illustration",
-      "title": "Add generated static brand/illustration assets and use them in the UI (stored under frontend/public/assets/generated), including a simple logo and a hero illustration.",
-      "reqIds": [
-        "REQ-7"
-      ],
-      "version": 1
     }
   ],
-  "new_feature_requests": [
-    {
-      "id": "AR-1",
-      "summary": "Provide guided form-filling assistance for users",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Include contact information / support contacts for users",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-3",
-      "summary": "Provide educational content on making money online from home",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-8",
-      "summary": "Implement Motoko backend data models and endpoints to support: (a) fetching form guidance templates, (b) fetching learning lessons and categories, and (c) creating and listing help requests. Persist this data in canister stable state.",
-      "reqIds": [
-        "REQ-5"
-      ],
-      "status": "pending"
-    }
-  ],
-  "projectName": "Form-filling guidance app with contact info and work-from-home learning content",
+  "new_feature_requests": [],
+  "projectName": "Replace selected hero image with uploaded logo graphic",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }
