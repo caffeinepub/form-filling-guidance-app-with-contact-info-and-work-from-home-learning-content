@@ -1,46 +1,47 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-12T07:29:03.357Z",
-  "summary": "The Learn page hero <img> source was updated to point to /assets/generated/hero-guidance-logo.dim_1600x900.png and the alt text was updated. However, the required new static asset file was not added, and unrelated hero headline text was changed (including a personal name), which is outside the requested scope.",
+  "generatedAt": "2026-02-12T07:32:48.798Z",
+  "summary": "REQ-3, REQ-5, and REQ-6 appear implemented (header brand text, logo alt text includes new brand name, and HTML <title> updated). REQ-4 (footer copyright line formatting and auto-updating year) cannot be confirmed from the provided truncated diff; additional unrelated changes (e.g., social/WhatsApp items) appear present.",
   "missing_requirements": [
     {
-      "id": "REQ-1",
-      "requirement": "The selected hero <img> uses a new static asset in frontend/public/assets/generated (hero-guidance-logo.dim_1600x900.png).",
-      "reason": "The <img> src references the new asset path, but the diff shows no new files added, so the required image file does not appear to have been added under frontend/public/assets/generated.",
+      "id": "REQ-4",
+      "requirement": "Update the footer copyright brand name to exactly: \"learning& Earning\" with the line reading \"© <current year> learning& Earning. All rights reserved.\" (year updates automatically).",
+      "reason": "The AppLayout footer section is truncated in the diff, so the exact footer copyright string and the auto-updating year behavior cannot be verified from the provided evidence.",
       "evidence": [
-        "frontend/src/components/learn/LearnHero.tsx (references /assets/generated/hero-guidance-logo.dim_1600x900.png)",
-        "File diff summary: Added: 0"
+        "frontend/src/components/AppLayout.tsx (truncated)"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Changed Learn page hero headline copy to include a personal name and new marketing text.",
-      "reason": "The BuildRequest only asked to replace the selected hero image and update its alt text; it explicitly constrained changes to the selected element and did not request any text/copy changes.",
+      "description": "Added/changed social links and WhatsApp-related UI elements in the layout/footer (e.g., Facebook/X/WhatsApp icons and WhatsApp contact info).",
+      "reason": "Not requested; non-goals explicitly exclude changing navigation/backend functionality, and social/WhatsApp additions are outside the branding/text-only scope.",
       "evidence": [
-        "frontend/src/components/learn/LearnHero.tsx (h1 changed to \"Hey Here is Abhishek Singh &Team Join Fast!!\")"
+        "frontend/src/components/AppLayout.tsx (imports SiX, SiFacebook, SiWhatsapp; social link markup; truncated footer)"
       ]
     },
     {
-      "description": "Updated/added repository metadata summaries (frontend-file-summaries.txt) beyond the requested hero image change.",
-      "reason": "Not requested in the BuildRequest; appears to be documentation/metadata updates rather than implementing REQ-1/REQ-2.",
+      "description": "Claimed change: Guided form wizard primary CTA now opens a WhatsApp chat link with a \"Join Fast!!\" label.",
+      "reason": "Not requested by any REQ; appears as an unrelated feature change described in the modified summary file.",
       "evidence": [
         "frontend-file-summaries.txt"
       ]
     },
     {
-      "description": "Modified project tracking state (project_state.json) marking requests as pending/including additional metadata.",
-      "reason": "Not requested as part of implementing the frontend hero image/alt text requirements.",
+      "description": "Updated/added project tracking metadata (project_state.json) marking new feature requests for the branding change.",
+      "reason": "Not part of the requested frontend branding text changes; BuildRequest did not ask for project state/metadata updates.",
       "evidence": [
         "project_state.json"
       ]
     }
   ],
-  "confidence": 0.72,
+  "confidence": 0.66,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/components/learn/LearnHero.tsx",
+    "frontend/index.html",
+    "frontend/src/components/AppLayout.tsx",
+    "frontend/src/components/BrandLogo.tsx",
     "project_state.json"
   ]
 }

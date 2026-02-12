@@ -25,7 +25,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <div className="container flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <BrandLogo />
-            <span className="font-semibold text-lg hidden sm:inline-block">WorkFromHome Guide</span>
+            <span className="font-semibold text-lg hidden sm:inline-block">learning& Earning</span>
           </Link>
 
           <nav className="flex items-center gap-1 sm:gap-2">
@@ -124,7 +124,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           </div>
 
           <div className="mt-8 pt-6 border-t border-border/40 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© {new Date().getFullYear()} WorkFromHome Guide. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} learning& Earning. All rights reserved.</p>
             <p>
               Built with love using{' '}
               <a

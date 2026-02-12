@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-selected-img-element-xpath-html-1-body-1-div-1-div-1-main-1-div-1-div-1-div-1-div-1-div-2-img-1-in-the-learn-page-hero-so-it-displays-the-newly-uploaded-logo-graphic-instead-of-the-current-hero-illustration",
-      "featureTitle": "Update the selected <img> element (XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]) in the Learn page hero so it displays the newly uploaded logo graphic instead of the current hero illustration.",
+      "featureId": "feature-update-the-website-name-brand-text-shown-in-the-header-next-to-the-logo-from-the-current-name-to-exactly-learning-earning",
+      "featureTitle": "Update the website name/brand text shown in the header (next to the logo) from the current name to exactly: \"learning& Earning\".",
       "files": [
-        "frontend/src/components/learn/LearnHero.tsx"
+        "frontend/src/components/AppLayout.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -16,15 +16,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-1"
+        "REQ-3"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-set-the-updated-hero-image-alt-text-to-clear-english-describing-the-uploaded-logo-graphic-do-not-include-personal-names",
-      "featureTitle": "Set the updated hero image alt text to clear English describing the uploaded logo graphic (do not include personal names).",
+      "featureId": "feature-update-the-footer-copyright-brand-name-to-exactly-learning-earning",
+      "featureTitle": "Update the footer copyright brand name to exactly: \"learning& Earning\".",
       "files": [
-        "frontend/src/components/learn/LearnHero.tsx"
+        "frontend/src/components/AppLayout.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -35,7 +35,45 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-2"
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-app-logo-image-alt-text-to-use-the-new-website-name-in-english-and-reflect-the-new-brand-name-exactly-learning-earning",
+      "featureTitle": "Update the app logo image alt text to use the new website name in English and reflect the new brand name exactly: \"learning& Earning\".",
+      "files": [
+        "frontend/src/components/BrandLogo.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-html-document-title-browser-tab-title-to-match-the-new-website-name-learning-earning",
+      "featureTitle": "Update the HTML document title (browser tab title) to match the new website name: \"learning& Earning\".",
+      "files": [
+        "frontend/index.html"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
       ],
       "confidence": "high"
     }

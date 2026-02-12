@@ -1,31 +1,54 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
+  "summary": "Website project; update branding/site name to \"learning& Earning\".",
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Create a landscape-cropped/letterboxed version of the uploaded graphic with centered emblem and text on a clean background (hero-guidance-logo.dim_1600x900.png).",
   "existing_features": [
     {
-      "id": "feature-update-the-selected-img-element-xpath-html-1-body-1-div-1-div-1-main-1-div-1-div-1-div-1-div-1-div-2-img-1-in-the-learn-page-hero-so-it-displays-the-newly-uploaded-logo-graphic-instead-of-the-current-hero-illustration",
-      "title": "Update the selected <img> element (XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]) in the Learn page hero so it displays the newly uploaded logo graphic instead of the current hero illustration.",
+      "id": "feature-update-the-website-name-brand-text-shown-in-the-header-next-to-the-logo-from-the-current-name-to-exactly-learning-earning",
+      "title": "Update the website name/brand text shown in the header (next to the logo) from the current name to exactly: \"learning& Earning\".",
       "reqIds": [
-        "REQ-1"
+        "REQ-3"
       ],
       "version": 1
     },
     {
-      "id": "feature-set-the-updated-hero-image-alt-text-to-clear-english-describing-the-uploaded-logo-graphic-do-not-include-personal-names",
-      "title": "Set the updated hero image alt text to clear English describing the uploaded logo graphic (do not include personal names).",
+      "id": "feature-update-the-footer-copyright-brand-name-to-exactly-learning-earning",
+      "title": "Update the footer copyright brand name to exactly: \"learning& Earning\".",
       "reqIds": [
-        "REQ-2"
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-app-logo-image-alt-text-to-use-the-new-website-name-in-english-and-reflect-the-new-brand-name-exactly-learning-earning",
+      "title": "Update the app logo image alt text to use the new website name in English and reflect the new brand name exactly: \"learning& Earning\".",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-html-document-title-browser-tab-title-to-match-the-new-website-name-learning-earning",
+      "title": "Update the HTML document title (browser tab title) to match the new website name: \"learning& Earning\".",
+      "reqIds": [
+        "REQ-6"
       ],
       "version": 1
     }
   ],
-  "new_feature_requests": [],
-  "projectName": "Replace selected hero image with uploaded logo graphic",
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Change website name to \"learning& Earning\"",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "learning& Earning",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

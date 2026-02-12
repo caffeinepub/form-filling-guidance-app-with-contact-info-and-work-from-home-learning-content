@@ -1,66 +1,85 @@
 {
   "kind": "build_request",
-  "title": "Replace selected hero image with uploaded logo graphic",
+  "title": "Update website name to \"learning& Earning\"",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Update the selected <img> element (XPath: /html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]) in the Learn page hero so it displays the newly uploaded logo graphic instead of the current hero illustration.",
+      "id": "REQ-3",
+      "text": "Update the website name/brand text shown in the header (next to the logo) from the current name to exactly: \"learning& Earning\".",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-4"
         ],
         "quotes": [
-          "Logo"
+          "Change website name   - learning& Earning"
         ]
       },
       "acceptanceCriteria": [
-        "The Learn page hero image no longer uses /assets/generated/hero-illustration.dim_1600x900.png.",
-        "The selected hero <img> uses a new static asset in frontend/public/assets/generated and renders without layout breakage (keeps responsive sizing and rounded/shadow styling)."
+        "Header branding text next to the logo displays exactly \"learning& Earning\" (including case and ampersand).",
+        "No occurrences of the previous header brand name remain visible in the header across routes."
       ]
     },
     {
-      "id": "REQ-2",
-      "text": "Set the updated hero image alt text to clear English describing the uploaded logo graphic (do not include personal names).",
+      "id": "REQ-4",
+      "text": "Update the footer copyright brand name to exactly: \"learning& Earning\".",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-4"
         ],
         "quotes": [
-          "Logo"
+          "Change website name   - learning& Earning"
         ]
       },
       "acceptanceCriteria": [
-        "The hero image alt text is in English and does not contain personal names.",
-        "Lighthouse/axe checks for missing alt text pass for this image."
+        "Footer line reads \"© <current year> learning& Earning. All rights reserved.\" (with the year continuing to update automatically)."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Update the app logo image alt text to use the new website name in English and reflect the new brand name exactly: \"learning& Earning\".",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Change website name   - learning& Earning"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The logo <img> alt text includes the exact brand name \"learning& Earning\" and does not reference the previous brand name."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Update the HTML document title (browser tab title) to match the new website name: \"learning& Earning\".",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Change website name   - learning& Earning"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The <title> in frontend/index.html is exactly \"learning& Earning\".",
+        "Refreshing the page shows the updated tab title in the browser."
       ]
     }
   ],
   "constraints": [
-    "Apply changes only to the user-selected element (the Learn page hero image at the provided XPath).",
-    "Do not modify files under frontend/src/components/ui or any paths listed as immutable in SYSTEM_CONTEXT."
+    "Do not edit any files under frontend/src/components/ui (read-only shadcn components).",
+    "Do not edit files listed as immutable in SYSTEM_CONTEXT."
   ],
   "nonGoals": [
-    "Do not change the header app logo (BrandLogo) unless explicitly requested.",
-    "Do not add new backend logic or data models.",
-    "Do not update other images or page sections besides the selected hero image."
+    "Creating a new logo image or changing existing image files.",
+    "Changing navigation labels, routes, or backend functionality."
   ],
   "imageRequirements": {
-    "required": [
-      "Create a landscape-cropped/letterboxed version of the uploaded graphic with centered emblem and text on a clean background (hero-guidance-logo.dim_1600x900.png)."
-    ],
+    "required": [],
     "edits": []
-  },
-  "userProfileUpdate": {
-    "goalsToAdd": [],
-    "goalsToRemove": [],
-    "preferencesToAdd": [],
-    "preferencesToRemove": [],
-    "miscToAdd": [],
-    "miscToRemove": [],
-    "fieldsToSet": {},
-    "fieldsToDelete": []
   }
 }

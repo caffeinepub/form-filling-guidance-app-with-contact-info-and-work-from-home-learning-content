@@ -1,40 +1,63 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Swap Learn hero illustration with uploaded logo asset",
+  "title": "Update brand name to \"learning& Earning\" across header, footer, logo alt, and document title",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Replace the Learn page hero <img> source with the newly uploaded logo-based hero graphic while preserving existing responsive/styling classes.",
+      "id": "REQ-3",
+      "summary": "Change header brand text next to the logo to exactly \"learning& Earning\".",
       "acceptanceCriteria": [
-        "The Learn page hero image no longer uses /assets/generated/hero-illustration.dim_1600x900.png.",
-        "The selected hero <img> uses a new static asset in frontend/public/assets/generated and renders without layout breakage (keeps responsive sizing and rounded/shadow styling)."
+        "Header branding text next to the logo displays exactly \"learning& Earning\" (including case and ampersand).",
+        "No occurrences of the previous header brand name remain visible in the header across routes."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/hero-guidance-logo.dim_1600x900.png",
-          "operation": "create",
-          "description": "Add the generated landscape-cropped/letterboxed logo graphic asset (hero-guidance-logo.dim_1600x900.png) as a static file for the Learn hero image."
-        },
-        {
-          "path": "frontend/src/components/learn/LearnHero.tsx",
+          "path": "frontend/src/components/AppLayout.tsx",
           "operation": "modify",
-          "description": "Update ONLY the selected hero <img> (per provided XPath) to use src pointing to the new static asset at /assets/generated/hero-guidance-logo.dim_1600x900.png, keeping existing sizing and rounded/shadow className intact."
+          "description": "Update the header brand <span> text rendered next to <BrandLogo /> from the previous name to exactly \"learning& Earning\" so it is consistent across all routes using AppLayout."
         }
       ]
     },
     {
-      "id": "REQ-2",
-      "summary": "Update the Learn hero image alt text to clear English describing the logo graphic without personal names.",
+      "id": "REQ-4",
+      "summary": "Change footer copyright brand name to exactly \"learning& Earning\" while keeping the year automatic.",
       "acceptanceCriteria": [
-        "The hero image alt text is in English and does not contain personal names.",
-        "Lighthouse/axe checks for missing alt text pass for this image."
+        "Footer line reads \"© <current year> learning& Earning. All rights reserved.\" (with the year continuing to update automatically)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/learn/LearnHero.tsx",
+          "path": "frontend/src/components/AppLayout.tsx",
           "operation": "modify",
-          "description": "Update ONLY the selected hero <img> alt text to a clear English description of the logo graphic (exclude any personal names) while leaving all other Learn hero content unchanged."
+          "description": "Update the footer copyright line to use exactly \"learning& Earning\" while preserving the existing automatic year rendering."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Update the logo image alt text to reflect the new brand name exactly: \"learning& Earning\".",
+      "acceptanceCriteria": [
+        "The logo <img> alt text includes the exact brand name \"learning& Earning\" and does not reference the previous brand name."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/BrandLogo.tsx",
+          "operation": "modify",
+          "description": "Change the <img> alt text to include the exact brand name \"learning& Earning\" (and remove any reference to the previous brand name)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Set the HTML document title to exactly \"learning& Earning\".",
+      "acceptanceCriteria": [
+        "The <title> in frontend/index.html is exactly \"learning& Earning\".",
+        "Refreshing the page shows the updated tab title in the browser."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Replace the existing <title> text with exactly \"learning& Earning\"."
         }
       ]
     }

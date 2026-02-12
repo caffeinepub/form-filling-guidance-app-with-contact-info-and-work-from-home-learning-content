@@ -1,7 +1,7 @@
 {
   "frontend/src/App.tsx": "Main application component with TanStack Router setup defining all routes (home/learn, guided forms, contact, lesson detail) and wrapping them in the AppLayout component.",
-  "frontend/src/components/AppLayout.tsx": "Shared layout component providing consistent header navigation with logo and nav links, main content area, and footer with attribution, social links including WhatsApp icon linking to the specified chat URL, and WhatsApp contact information (+916393481228) displayed in the Connect section.",
-  "frontend/src/components/BrandLogo.tsx": "Simple component rendering the static app logo image from the generated assets folder with proper alt text.",
+  "frontend/src/components/AppLayout.tsx": "Shared layout component providing consistent header navigation with logo and \"learning& Earning\" brand text, main content area, and footer with copyright showing \"learning& Earning\", social links including WhatsApp, and WhatsApp contact information.",
+  "frontend/src/components/BrandLogo.tsx": "Simple component rendering the static app logo image with alt text \"learning& Earning Logo\".",
   "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend interactions including fetching lesson categories, lessons by category, individual lessons, disclaimers, support contact info, and submitting help requests.",
   "frontend/src/pages/LearnPage.tsx": "Main learning page displaying hero section, disclaimer alert, scam awareness checklist, and categorized lesson listings fetched from the backend.",
   "frontend/src/pages/LessonDetailPage.tsx": "Individual lesson detail page showing lesson title, difficulty badge, reading time estimate, tags, full content, disclaimer, and scam awareness checklist.",
@@ -16,5 +16,6 @@
   "frontend/src/components/guided-form/validators.ts": "Client-side validation functions for form fields including required field checks, email format validation, and phone number validation.",
   "frontend/src/components/guided-form/GuidedFormWizard.tsx": "Multi-step wizard component managing form type selection, step-by-step field completion with tips and examples, and final review screen; the primary CTA button now opens the WhatsApp chat link with \"Join Fast!!\" label.",
   "frontend/src/index.css": "Global styles with OKLCH color system using warm neutral base colors with green primary and orange accent colors for both light and dark modes.",
-  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with Inter font family and maintaining the warm neutral + green/orange color palette."
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with Inter font family and maintaining the warm neutral + green/orange color palette.",
+  "frontend/index.html": "HTML entry point with document title set to \"learning& Earning\"."
 }
