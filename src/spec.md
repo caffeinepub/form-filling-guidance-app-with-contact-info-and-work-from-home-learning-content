@@ -1,12 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Update the site’s displayed brand name to exactly “learning& Earning” across key UI and metadata.
+**Goal:** Go live with Version 2 as the current production release.
 
 **Planned changes:**
-- Update the header brand text next to the logo to “learning& Earning” on all routes.
-- Update the footer copyright brand name to “learning& Earning” while keeping the current year auto-updating.
-- Update the app logo image alt text to include the exact brand name “learning& Earning”.
-- Update the HTML document title (`<title>`) to exactly “learning& Earning”.
+- Update `frontend/public/app-version.txt` so the first line is exactly `Version 2`, while keeping the `Routes:` line consistent with the app’s core routes (`/`, `/learn`, `/guided-forms`, `/contact`).
+- Update `frontend/DEPLOYMENT.md` to reflect `### Current Version: Version 2`.
+- Run the existing post-deploy smoke check script against the production base URL and confirm core routes return HTTP 2xx/3xx.
 
-**User-visible outcome:** The header, footer, logo alt text, and browser tab title all display “learning& Earning”, with no remnants of the previous brand name in the header.
+**User-visible outcome:** The production release is identified as Version 2, deployment docs reflect Version 2, and core routes are verified reachable via the post-deploy smoke check.

@@ -1,57 +1,48 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-12T07:32:48.800Z",
+  "generatedAt": "2026-02-12T07:54:29.807Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 4,
-    "implemented": 4,
+    "total": 3,
+    "implemented": 3,
     "items": [
       {
+        "id": "REQ-1",
+        "summary": "Update the production version identifier to Version 2 by editing `frontend/public/app-version.txt` so the first line is exactly `Version 2`, and keep the existing `Routes:` line consistent with the app’s current routes.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/app-version.txt"
+        ],
+        "matchedFiles": [
+          "frontend/public/app-version.txt"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Update deployment documentation to reflect that the current live release target is Version 2 by updating the `### Current Version:` section in `frontend/DEPLOYMENT.md`.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/DEPLOYMENT.md"
+        ],
+        "matchedFiles": [
+          "frontend/DEPLOYMENT.md"
+        ]
+      },
+      {
         "id": "REQ-3",
-        "summary": "Update the website name/brand text shown in the header (next to the logo) from the current name to exactly: \"learning& Earning\".",
+        "summary": "Run the existing post-deploy smoke check script against the production base URL after the Version 2 deployment and ensure all core routes return HTTP 2xx/3xx.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/AppLayout.tsx"
+          "frontend/scripts/postdeploy-smoke-check.mjs",
+          "frontend/scripts/SMOKE_CHECK_PRODUCTION.md"
         ],
         "matchedFiles": [
-          "frontend/src/components/AppLayout.tsx"
-        ]
-      },
-      {
-        "id": "REQ-4",
-        "summary": "Update the footer copyright brand name to exactly: \"learning& Earning\".",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/AppLayout.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/AppLayout.tsx"
-        ]
-      },
-      {
-        "id": "REQ-5",
-        "summary": "Update the app logo image alt text to use the new website name in English and reflect the new brand name exactly: \"learning& Earning\".",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/BrandLogo.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/BrandLogo.tsx"
-        ]
-      },
-      {
-        "id": "REQ-6",
-        "summary": "Update the HTML document title (browser tab title) to match the new website name: \"learning& Earning\".",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/index.html"
-        ],
-        "matchedFiles": [
-          "frontend/index.html"
+          "frontend/scripts/postdeploy-smoke-check.mjs",
+          "frontend/scripts/SMOKE_CHECK_PRODUCTION.md"
         ]
       }
     ]
@@ -61,9 +52,10 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/index.html",
-    "frontend/src/components/AppLayout.tsx",
-    "frontend/src/components/BrandLogo.tsx",
+    "frontend/DEPLOYMENT.md",
+    "frontend/public/app-version.txt",
+    "frontend/scripts/SMOKE_CHECK_PRODUCTION.md",
+    "frontend/scripts/postdeploy-smoke-check.mjs",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

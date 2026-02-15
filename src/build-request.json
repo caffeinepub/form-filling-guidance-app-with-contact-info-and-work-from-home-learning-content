@@ -1,82 +1,67 @@
 {
   "kind": "build_request",
-  "title": "Update website name to \"learning& Earning\"",
+  "title": "Go live with Version 2 (production release)",
   "priority": "normal",
   "requirements": [
     {
+      "id": "REQ-1",
+      "text": "Update the production version identifier to Version 2 by editing `frontend/public/app-version.txt` so the first line is exactly `Version 2`, and keep the existing `Routes:` line consistent with the app’s current routes.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Version 2 go live"
+        ]
+      },
+      "acceptanceCriteria": [
+        "`frontend/public/app-version.txt` first line is exactly `Version 2`.",
+        "`frontend/public/app-version.txt` retains a valid `Routes:` line matching the app’s core routes (/, /learn, /guided-forms, /contact)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Update deployment documentation to reflect that the current live release target is Version 2 by updating the `### Current Version:` section in `frontend/DEPLOYMENT.md`.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Version 2 go live"
+        ]
+      },
+      "acceptanceCriteria": [
+        "`frontend/DEPLOYMENT.md` shows `### Current Version: Version 2`."
+      ]
+    },
+    {
       "id": "REQ-3",
-      "text": "Update the website name/brand text shown in the header (next to the logo) from the current name to exactly: \"learning& Earning\".",
+      "text": "Run the existing post-deploy smoke check script against the production base URL after the Version 2 deployment and ensure all core routes return HTTP 2xx/3xx.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-4"
         ],
         "quotes": [
-          "Change website name   - learning& Earning"
+          "Version 2 go live"
         ]
       },
       "acceptanceCriteria": [
-        "Header branding text next to the logo displays exactly \"learning& Earning\" (including case and ampersand).",
-        "No occurrences of the previous header brand name remain visible in the header across routes."
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Update the footer copyright brand name to exactly: \"learning& Earning\".",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "Change website name   - learning& Earning"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Footer line reads \"© <current year> learning& Earning. All rights reserved.\" (with the year continuing to update automatically)."
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Update the app logo image alt text to use the new website name in English and reflect the new brand name exactly: \"learning& Earning\".",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "Change website name   - learning& Earning"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The logo <img> alt text includes the exact brand name \"learning& Earning\" and does not reference the previous brand name."
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "text": "Update the HTML document title (browser tab title) to match the new website name: \"learning& Earning\".",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "Change website name   - learning& Earning"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The <title> in frontend/index.html is exactly \"learning& Earning\".",
-        "Refreshing the page shows the updated tab title in the browser."
+        "Running `node frontend/scripts/postdeploy-smoke-check.mjs <production-base-url>` exits with code 0.",
+        "Smoke check passes for routes: `/`, `/learn`, `/guided-forms`, `/contact`."
       ]
     }
   ],
   "constraints": [
-    "Do not edit any files under frontend/src/components/ui (read-only shadcn components).",
-    "Do not edit files listed as immutable in SYSTEM_CONTEXT."
+    "Do not modify any files under `frontend/src/components/ui` (read-only Shadcn components).",
+    "Do not edit immutable hook entrypoints: `frontend/src/hooks/useInternetIdentity.ts`, `frontend/src/hooks/useInternetIdentity.tsx`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`.",
+    "Keep backend as a single Motoko actor in `backend/main.mo`; do not introduce additional canisters/services."
   ],
   "nonGoals": [
-    "Creating a new logo image or changing existing image files.",
-    "Changing navigation labels, routes, or backend functionality."
+    "Adding new product features or UI changes unrelated to the Version 2 production release.",
+    "Changing backend data models or performing state migrations unless explicitly required by the Version 2 release process."
   ],
   "imageRequirements": {
     "required": [],

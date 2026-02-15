@@ -2,10 +2,49 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-website-name-brand-text-shown-in-the-header-next-to-the-logo-from-the-current-name-to-exactly-learning-earning",
-      "featureTitle": "Update the website name/brand text shown in the header (next to the logo) from the current name to exactly: \"learning& Earning\".",
+      "featureId": "feature-update-the-production-version-identifier-to-version-2-by-editing-frontend-public-app-version-txt-so-the-first-line-is-exactly-version-2-and-keep-the-existing-routes-line-consistent-with-the-app-s-current-routes",
+      "featureTitle": "Update the production version identifier to Version 2 by editing `frontend/public/app-version.txt` so the first line is exactly `Version 2`, and keep the existing `Routes:` line consistent with the app’s current routes.",
       "files": [
-        "frontend/src/components/AppLayout.tsx"
+        "frontend/public/app-version.txt"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-deployment-documentation-to-reflect-that-the-current-live-release-target-is-version-2-by-updating-the-current-version-section-in-frontend-deployment-md",
+      "featureTitle": "Update deployment documentation to reflect that the current live release target is Version 2 by updating the `### Current Version:` section in `frontend/DEPLOYMENT.md`.",
+      "files": [
+        "frontend/DEPLOYMENT.md"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-run-the-existing-post-deploy-smoke-check-script-against-the-production-base-url-after-the-version-2-deployment-and-ensure-all-core-routes-return-http-2xx-3xx",
+      "featureTitle": "Run the existing post-deploy smoke check script against the production base URL after the Version 2 deployment and ensure all core routes return HTTP 2xx/3xx.",
+      "files": [
+        "frontend/scripts/SMOKE_CHECK_PRODUCTION.md",
+        "frontend/scripts/postdeploy-smoke-check.mjs"
       ],
       "components": [
         "authorization@4.0.0",
@@ -17,63 +56,6 @@
       ],
       "testIds": [
         "REQ-3"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-update-the-footer-copyright-brand-name-to-exactly-learning-earning",
-      "featureTitle": "Update the footer copyright brand name to exactly: \"learning& Earning\".",
-      "files": [
-        "frontend/src/components/AppLayout.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-4"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-update-the-app-logo-image-alt-text-to-use-the-new-website-name-in-english-and-reflect-the-new-brand-name-exactly-learning-earning",
-      "featureTitle": "Update the app logo image alt text to use the new website name in English and reflect the new brand name exactly: \"learning& Earning\".",
-      "files": [
-        "frontend/src/components/BrandLogo.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-5"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-update-the-html-document-title-browser-tab-title-to-match-the-new-website-name-learning-earning",
-      "featureTitle": "Update the HTML document title (browser tab title) to match the new website name: \"learning& Earning\".",
-      "files": [
-        "frontend/index.html"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-6"
       ],
       "confidence": "high"
     }

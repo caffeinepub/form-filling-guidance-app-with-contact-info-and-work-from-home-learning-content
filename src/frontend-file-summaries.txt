@@ -17,5 +17,9 @@
   "frontend/src/components/guided-form/GuidedFormWizard.tsx": "Multi-step wizard component managing form type selection, step-by-step field completion with tips and examples, and final review screen; the primary CTA button now opens the WhatsApp chat link with \"Join Fast!!\" label.",
   "frontend/src/index.css": "Global styles with OKLCH color system using warm neutral base colors with green primary and orange accent colors for both light and dark modes.",
   "frontend/tailwind.config.js": "Tailwind configuration extending the theme with Inter font family and maintaining the warm neutral + green/orange color palette.",
-  "frontend/index.html": "HTML entry point with document title set to \"learning& Earning\"."
+  "frontend/index.html": "HTML entry point with document title set to \"learning& Earning\".",
+  "frontend/public/app-version.txt": "Static text file containing Version 2 identifier, build date, and core routes list for deployment verification.",
+  "frontend/scripts/postdeploy-smoke-check.mjs": "Node.js script that performs automated HTTP checks on core application routes (/, /learn, /guided-forms, /contact) to verify successful deployment, exiting with code 0 on success.",
+  "frontend/DEPLOYMENT.md": "Comprehensive deployment documentation covering build procedures, version verification using app-version.txt, smoke check execution, rollback procedures, version history showing Version 2 as current, and troubleshooting guidelines.",
+  "frontend/scripts/SMOKE_CHECK_PRODUCTION.md": "Runbook documenting how to run the post-deployment smoke check script, interpret exit codes (0 for success, non-zero for failure), troubleshoot failures, and integrate with CI/CD pipelines."
 }

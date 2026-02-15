@@ -1,63 +1,54 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Update brand name to \"learning& Earning\" across header, footer, logo alt, and document title",
+  "title": "Version 2 production release (frontend-only)",
   "requirements": [
     {
+      "id": "REQ-1",
+      "summary": "Update the production version identifier to Version 2 in the static version file while keeping the Routes line aligned to the app’s core routes.",
+      "acceptanceCriteria": [
+        "`frontend/public/app-version.txt` first line is exactly `Version 2`.",
+        "`frontend/public/app-version.txt` retains a valid `Routes:` line matching the app’s core routes (/, /learn, /guided-forms, /contact)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/app-version.txt",
+          "operation": "modify",
+          "description": "Change the first line from `Version 3` to exactly `Version 2`; keep the existing `Routes: /, /learn, /guided-forms, /contact` line unchanged and consistent with the current router."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Update deployment documentation to indicate Version 2 is the current live release target.",
+      "acceptanceCriteria": [
+        "`frontend/DEPLOYMENT.md` shows `### Current Version: Version 2`."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/DEPLOYMENT.md",
+          "operation": "modify",
+          "description": "Update the `### Current Version:` line to `### Current Version: Version 2` and adjust any nearby version-specific wording that would otherwise contradict the current version declaration (without adding unrelated release notes)."
+        }
+      ]
+    },
+    {
       "id": "REQ-3",
-      "summary": "Change header brand text next to the logo to exactly \"learning& Earning\".",
+      "summary": "Ensure the post-deploy smoke check script is ready to be run against the production base URL and verifies all core routes return HTTP 2xx/3xx.",
       "acceptanceCriteria": [
-        "Header branding text next to the logo displays exactly \"learning& Earning\" (including case and ampersand).",
-        "No occurrences of the previous header brand name remain visible in the header across routes."
+        "Running `node frontend/scripts/postdeploy-smoke-check.mjs <production-base-url>` exits with code 0.",
+        "Smoke check passes for routes: `/`, `/learn`, `/guided-forms`, `/contact`."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/AppLayout.tsx",
+          "path": "frontend/scripts/postdeploy-smoke-check.mjs",
           "operation": "modify",
-          "description": "Update the header brand <span> text rendered next to <BrandLogo /> from the previous name to exactly \"learning& Earning\" so it is consistent across all routes using AppLayout."
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "Change footer copyright brand name to exactly \"learning& Earning\" while keeping the year automatic.",
-      "acceptanceCriteria": [
-        "Footer line reads \"© <current year> learning& Earning. All rights reserved.\" (with the year continuing to update automatically)."
-      ],
-      "file_operations": [
+          "description": "Confirm the script’s route list matches the production core routes (`/`, `/learn`, `/guided-forms`, `/contact`) and keep behavior to exit 0 only when all checks return HTTP 2xx/3xx; update inline usage text if needed to reflect the correct invocation path (`node frontend/scripts/postdeploy-smoke-check.mjs <production-base-url>`)."
+        },
         {
-          "path": "frontend/src/components/AppLayout.tsx",
-          "operation": "modify",
-          "description": "Update the footer copyright line to use exactly \"learning& Earning\" while preserving the existing automatic year rendering."
-        }
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "summary": "Update the logo image alt text to reflect the new brand name exactly: \"learning& Earning\".",
-      "acceptanceCriteria": [
-        "The logo <img> alt text includes the exact brand name \"learning& Earning\" and does not reference the previous brand name."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/BrandLogo.tsx",
-          "operation": "modify",
-          "description": "Change the <img> alt text to include the exact brand name \"learning& Earning\" (and remove any reference to the previous brand name)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "summary": "Set the HTML document title to exactly \"learning& Earning\".",
-      "acceptanceCriteria": [
-        "The <title> in frontend/index.html is exactly \"learning& Earning\".",
-        "Refreshing the page shows the updated tab title in the browser."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/index.html",
-          "operation": "modify",
-          "description": "Replace the existing <title> text with exactly \"learning& Earning\"."
+          "path": "frontend/scripts/SMOKE_CHECK_PRODUCTION.md",
+          "operation": "create",
+          "description": "Add a short runbook documenting exactly how to run `node frontend/scripts/postdeploy-smoke-check.mjs <production-base-url>` after deployment and how to interpret exit code 0 vs non-zero, explicitly listing the checked routes (`/`, `/learn`, `/guided-forms`, `/contact`)."
         }
       ]
     }

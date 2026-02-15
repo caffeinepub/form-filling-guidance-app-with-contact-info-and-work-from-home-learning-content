@@ -1,47 +1,62 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-12T07:32:48.798Z",
-  "summary": "REQ-3, REQ-5, and REQ-6 appear implemented (header brand text, logo alt text includes new brand name, and HTML <title> updated). REQ-4 (footer copyright line formatting and auto-updating year) cannot be confirmed from the provided truncated diff; additional unrelated changes (e.g., social/WhatsApp items) appear present.",
+  "generatedAt": "2026-02-12T07:54:29.805Z",
+  "summary": "REQ-1 and REQ-2 appear implemented (Version 2 set in app-version.txt and DEPLOYMENT.md). REQ-3 (actually running the smoke check against the production URL and confirming exit code 0) is not evidenced by the diff. Several extra/unrequested documentation/state changes and a likely modification to the smoke-check script were introduced.",
   "missing_requirements": [
     {
-      "id": "REQ-4",
-      "requirement": "Update the footer copyright brand name to exactly: \"learning& Earning\" with the line reading \"© <current year> learning& Earning. All rights reserved.\" (year updates automatically).",
-      "reason": "The AppLayout footer section is truncated in the diff, so the exact footer copyright string and the auto-updating year behavior cannot be verified from the provided evidence.",
+      "id": "REQ-3",
+      "requirement": "Run the existing post-deploy smoke check script against the production base URL after the Version 2 deployment and ensure all core routes return HTTP 2xx/3xx (script exits with code 0).",
+      "reason": "The diff shows the smoke-check script content, but provides no evidence of it being executed against a production base URL nor any recorded successful output/exit code.",
       "evidence": [
-        "frontend/src/components/AppLayout.tsx (truncated)"
+        "frontend/scripts/postdeploy-smoke-check.mjs"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Added/changed social links and WhatsApp-related UI elements in the layout/footer (e.g., Facebook/X/WhatsApp icons and WhatsApp contact info).",
-      "reason": "Not requested; non-goals explicitly exclude changing navigation/backend functionality, and social/WhatsApp additions are outside the branding/text-only scope.",
+      "description": "Added a new production smoke check runbook markdown file.",
+      "reason": "Not requested by any requirement; REQ-3 only asks to run the existing smoke check script.",
       "evidence": [
-        "frontend/src/components/AppLayout.tsx (imports SiX, SiFacebook, SiWhatsapp; social link markup; truncated footer)"
+        "frontend/scripts/SMOKE_CHECK_PRODUCTION.md"
       ]
     },
     {
-      "description": "Claimed change: Guided form wizard primary CTA now opens a WhatsApp chat link with a \"Join Fast!!\" label.",
-      "reason": "Not requested by any REQ; appears as an unrelated feature change described in the modified summary file.",
+      "description": "Modified the post-deploy smoke check script (content shown in diff, including added logging/formatting).",
+      "reason": "REQ-3 requests running the existing script, not changing it. The diff indicates the script file was modified.",
+      "evidence": [
+        "frontend/scripts/postdeploy-smoke-check.mjs"
+      ]
+    },
+    {
+      "description": "Updated/modified internal project tracking/state files (project_state.json).",
+      "reason": "Not part of any stated requirement for the Version 2 production release tasks.",
+      "evidence": [
+        "project_state.json"
+      ]
+    },
+    {
+      "description": "Modified frontend-file-summaries.txt with extensive component/page descriptions unrelated to the version bump and deployment doc updates.",
+      "reason": "Not requested by REQ-1/REQ-2/REQ-3 and appears to be unrelated documentation/metadata changes.",
       "evidence": [
         "frontend-file-summaries.txt"
       ]
     },
     {
-      "description": "Updated/added project tracking metadata (project_state.json) marking new feature requests for the branding change.",
-      "reason": "Not part of the requested frontend branding text changes; BuildRequest did not ask for project state/metadata updates.",
+      "description": "Added a 'Version 2 Features' list to the deployment documentation.",
+      "reason": "REQ-2 only requires updating the '### Current Version:' line to 'Version 2'; the additional feature list is extra beyond the explicit acceptance criteria.",
       "evidence": [
-        "project_state.json"
+        "frontend/DEPLOYMENT.md"
       ]
     }
   ],
-  "confidence": 0.66,
+  "confidence": 0.74,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/index.html",
-    "frontend/src/components/AppLayout.tsx",
-    "frontend/src/components/BrandLogo.tsx",
+    "frontend/DEPLOYMENT.md",
+    "frontend/public/app-version.txt",
+    "frontend/scripts/SMOKE_CHECK_PRODUCTION.md",
+    "frontend/scripts/postdeploy-smoke-check.mjs",
     "project_state.json"
   ]
 }
